@@ -18,9 +18,13 @@ function App() {
     axios.post(`https://users-crud1.herokuapp.com/users/`, newUser)
       .then(() => getUsers())
   }
+  const deleteUser = id => {
+    axios.delete(`https://users-crud1.herokuapp.com/users/${id}/`)
+      .then(() => getUsers())
+  }
   return (
     <div className="App">
-      <UsersList users={users}/>
+      <UsersList users={users} deleteUser={deleteUser}/>
       <UsersForm addUser={addUser}/>
     </div>
   )

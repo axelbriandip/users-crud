@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from 'react';
 
 const UsersForm = ({ addUser }) => {
-    // creación de estados
     const [ firstName, setFirstName ] = useState('');
     const [ lastName, setLastName ] = useState('');
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
     const [ birthday, setBirthday ] = useState('');
+    const reset = () => {
+        setFirstName('');
+        setLastName('');
+        setEmail('');
+        setPassword('');
+        setBirthday('');
+    }
     const submit = e => {
         e.preventDefault();
         const newUser = {
@@ -17,6 +23,7 @@ const UsersForm = ({ addUser }) => {
             birthday: birthday
         }
         addUser(newUser);
+        reset();
     }
     return (
         <div className='container-form'>
