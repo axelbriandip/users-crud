@@ -1,15 +1,26 @@
 import React, { useEffect, useState } from 'react';
 
-const UsersForm = () => {
+const UsersForm = ({ addUser }) => {
     // creación de estados
     const [ firstName, setFirstName ] = useState('');
     const [ lastName, setLastName ] = useState('');
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
     const [ birthday, setBirthday ] = useState('');
+    const submit = e => {
+        e.preventDefault();
+        const newUser = {
+            first_name: firstName,
+            last_name: lastName,
+            email: email,
+            password: password,
+            birthday: birthday
+        }
+        addUser(newUser);
+    }
     return (
         <div className='container-form'>
-            <form>
+            <form onSubmit={submit}>
                 <h2>New user</h2>
                 <div className="container-input">
                     <span>icono</span>
@@ -28,7 +39,7 @@ const UsersForm = () => {
                     <span>icono</span>
                     <input type="date" value={birthday} onChange={e => setBirthday(e.target.value)}/>
                 </div>
-                <button>Submit</button>
+                <button>Create</button>
             </form>
         </div>
     );

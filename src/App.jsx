@@ -10,11 +10,18 @@ function App() {
     axios.get('https://users-crud1.herokuapp.com/users/')
       .then(res => setUsers(res.data))
   }, [])
-  console.log(users);
+  const getUsers = () => {
+    axios.get('https://users-crud1.herokuapp.com/users/')
+      .then(res => setUsers(res.data))
+  }
+  const addUser = newUser => {
+    axios.post(`https://users-crud1.herokuapp.com/users/`, newUser)
+      .then(() => getUsers())
+  }
   return (
     <div className="App">
       <UsersList users={users}/>
-      <UsersForm/>
+      <UsersForm addUser={addUser}/>
     </div>
   )
 }
