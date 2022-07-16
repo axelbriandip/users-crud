@@ -8,7 +8,7 @@ const UsersForm = () => {
     const [ password, setPassword ] = useState('');
     const [ birthday, setBirthday ] = useState('');
     return (
-        <div>
+        <div className='container-form'>
             <form>
                 <h2>New user</h2>
                 <div className="container-input">

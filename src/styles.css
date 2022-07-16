@@ -4,12 +4,36 @@
   box-sizing: border-box;
   font-family: sans-serif;
 }
-
 :root {
   --white: #eee;
   --black: #333;
 }
-
+.container-list span {
+  display: block;
+}
 body {
   background-color: var(--white);
+}
+.App {
+  display: flex;
+}
+.container-list {
+  width: 55%;
+  background-color: tan;
+}
+.container-form {
+  width: 45%;
+  min-height: 100vh;
+  background-color: yellowgreen;
+}
+.card-user {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  background-color: sandybrown;
+  margin-bottom: 1rem;
+}
+.card-user .info {
+  width: 70%;
+  background-color: violet;
 }
