@@ -2,29 +2,24 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: 'ABeeZee', sans-serif;
 }
 :root {
   --white: #eee;
   --black: #333;
+  --main: #5fbab0;
+  --violet: #b62bf6;
 }
 .container-list span {
   display: block;
 }
-body {
-  background-color: var(--white);
-}
 .App {
   display: flex;
 }
+/* LIST */
 .container-list {
   width: 55%;
-  background-color: tan;
-}
-.container-form {
-  width: 45%;
-  height: 100vh;
-  background-color: yellowgreen;
+  background-color: var(--violet);
 }
 .card-user {
   display: flex;
@@ -36,4 +31,51 @@ body {
 .card-user .info {
   width: 70%;
   background-color: violet;
+}
+/* FORM */
+.container-form {
+  width: 45%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 2.5rem;
+}
+.container-form form {
+  width: fit-content;
+}
+.container-form button {
+  margin-top: .5rem;
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: .5rem;
+  border: none;
+  background-color: var(--main);
+  color: #fff;
+  cursor: pointer;
+}
+.container-form h2 {
+  margin-bottom: 1rem;
+}
+.container-input {
+  margin-bottom: .5rem;
+}
+.container-form i {
+  width: 1.5rem;
+}
+.input-fname {
+  margin-right: .5rem;
+}
+.container-form input {
+  border: none;
+  padding: 0.5rem;
+  background-color: #eee;
+}
+.container-form input:focus {
+  outline: none;
+}
+.input-fname, .input-lname {
+  width: 9rem;
+}
+.input-email, .input-password, .input-birthday {
+  width: 18.5rem;
 }

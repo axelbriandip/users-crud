@@ -49,21 +49,21 @@ const UsersForm = ({ addUser, userSelected, deselectUser, modifyUser }) => {
             <form onSubmit={submit}>
                 <h2>New user</h2>
                 <div className="container-input">
-                    <span>icono</span>
-                    <input type="text" placeholder='first name' value={firstName} onChange={e => setFirstName(e.target.value)}/>
-                    <input type="text" placeholder='last name' value={lastName} onChange={e => setLastName(e.target.value)}/>
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" className='input-fname' placeholder='first name' value={firstName} onChange={e => setFirstName(e.target.value)}/>
+                    <input type="text" className='input-lname' placeholder='last name' value={lastName} onChange={e => setLastName(e.target.value)}/>
                 </div>
                 <div className="container-input">
-                    <span>icono</span>
-                    <input type="email" placeholder='email' value={email} onChange={e => setEmail(e.target.value)}/>
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" className='input-email' placeholder='email' value={email} onChange={e => setEmail(e.target.value)}/>
                 </div>
                 <div className="container-input">
-                    <span>icono</span>
-                    <input type="text" placeholder='password' value={password} onChange={e => setPassword(e.target.value)}/>
+                    <i class="fa-solid fa-key"></i>
+                    <input type="password" className='input-password' placeholder='password' value={password} onChange={e => setPassword(e.target.value)}/>
                 </div>
                 <div className="container-input">
-                    <span>icono</span>
-                    <input type="date" value={birthday} onChange={e => setBirthday(e.target.value)}/>
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <input type="date" className='input-birthday' value={birthday} onChange={e => setBirthday(e.target.value)}/>
                 </div>
                 <button>{userSelected !== null ? "Modify" : "Create"}</button>
                 {userSelected !== null && <button onClick={clean}>Clean</button>}
