@@ -37,9 +37,11 @@ const UsersForm = ({ addUser, userSelected, deselectUser, modifyUser }) => {
             newUser.id = userSelected.id;
             modifyUser(newUser);
             clean();
+            swal("Good job!", "User modified successfully", "success");
         } else {
             addUser(newUser);
             reset();
+            swal("Good job!", "User added successfully", "success");
         }
     }
     const clean = () => {

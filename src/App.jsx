@@ -27,6 +27,7 @@ function App() {
       .then(() => {
         getUsers();
         deselectUser();
+        swal("Good job!", "User deleted successfully", "success");
       })
       .catch(err => console.log(err.response))
   }
