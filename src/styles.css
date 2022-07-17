@@ -68,11 +68,11 @@
 /* LIST */
 .container-list {
   width: 55%;
-  background-color: var(--violet);
+  background: linear-gradient(to bottom, #8926b5, #9229c1, #9b2ccd, #a530d9, #ae33e5);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 2.5rem;
+  padding: 2.5rem 0 1rem 0;
 }
 .card-user {
   display: flex;

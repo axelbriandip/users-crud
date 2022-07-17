@@ -20,6 +20,8 @@ const UsersForm = ({ addUser, userSelected, deselectUser, modifyUser }) => {
             setEmail(userSelected?.email);
             setPassword(userSelected?.password);
             setBirthday(userSelected?.birthday);
+        } else{
+            reset();
         }
     }, [ userSelected ])
     const submit = e => {

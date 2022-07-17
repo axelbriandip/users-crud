@@ -24,7 +24,10 @@ function App() {
   }
   const deleteUser = id => {
     axios.delete(`https://users-crud1.herokuapp.com/users/${id}/`)
-      .then(() => getUsers())
+      .then(() => {
+        getUsers();
+        deselectUser();
+      })
       .catch(err => console.log(err.response))
   }
   const selectUser = user => {
