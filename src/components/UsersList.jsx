@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UsersList = ({ users, deleteUser }) => {
+const UsersList = ({ users, deleteUser, selectUser }) => {
     return (
         <div className='container-list'>
             <h1>test list</h1>
@@ -14,7 +14,7 @@ const UsersList = ({ users, deleteUser }) => {
                         </div>
                         <div className="buttons">
                             <button onClick={() => deleteUser(user.id)}>Delete</button>
-                            <button>Modify</button>
+                            <button onClick={() => selectUser(user)}>Modify</button>
                         </div>
                     </div>
                 ))

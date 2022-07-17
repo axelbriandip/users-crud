@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const UsersForm = ({ addUser }) => {
+const UsersForm = ({ addUser, userSelected, deselectUser, modifyUser }) => {
     const [ firstName, setFirstName ] = useState('');
     const [ lastName, setLastName ] = useState('');
     const [ email, setEmail ] = useState('');
@@ -13,6 +13,13 @@ const UsersForm = ({ addUser }) => {
         setPassword('');
         setBirthday('');
     }
+    useEffect(() => {
+        setFirstName(userSelected?.first_name);
+        setLastName(userSelected?.last_name);
+        setEmail(userSelected?.email);
+        setPassword(userSelected?.password);
+        setBirthday(userSelected?.birthday);
+    }, [ userSelected ])
     const submit = e => {
         e.preventDefault();
         const newUser = {
@@ -22,7 +29,17 @@ const UsersForm = ({ addUser }) => {
             password: password,
             birthday: birthday
         }
-        addUser(newUser);
+        if(userSelected !== null) {
+            newUser.id = userSelected.id;
+            modifyUser(newUser);
+            clean();
+        } else {
+            addUser(newUser);
+            reset();
+        }
+    }
+    const clean = () => {
+        deselectUser();
         reset();
     }
     return (
@@ -46,7 +63,8 @@ const UsersForm = ({ addUser }) => {
                     <span>icono</span>
                     <input type="date" value={birthday} onChange={e => setBirthday(e.target.value)}/>
                 </div>
-                <button>Create</button>
+                <button>{userSelected !== null ? "Modify" : "Create"}</button>
+                {userSelected !== null && <button onClick={clean}>Clean</button>}
             </form>
         </div>
     );
