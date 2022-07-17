@@ -3,18 +3,19 @@ import React from 'react';
 const UsersList = ({ users, deleteUser, selectUser }) => {
     return (
         <div className='container-list'>
-            <h1>test list</h1>
             {
                 users.map(user => (
                     <div className='card-user' key={user.id}>
                         <div className="info">
-                            <span>{user.first_name} {user.last_name}</span>
-                            <span>{user.email}</span>
-                            <span>{user.birthday}</span>
+                            <span className='name'><strong>{user.first_name} {user.last_name}</strong></span>
+                            <span className='email'>{user.email}</span>
+                            <div className='div-calendar'>
+                                <i class="fa-solid fa-calendar-days calendar-list"></i><span className='birthday'>{user.birthday}</span>
+                            </div>
                         </div>
                         <div className="buttons">
-                            <button onClick={() => deleteUser(user.id)}>Delete</button>
-                            <button onClick={() => selectUser(user)}>Modify</button>
+                            <i onClick={() => deleteUser(user.id)} class="fa-solid fa-trash-can icon-delete"></i>
+                            <i onClick={() => selectUser(user)} class="fa-solid fa-pen icon-pen"></i>
                         </div>
                     </div>
                 ))
