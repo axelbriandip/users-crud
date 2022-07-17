@@ -23,13 +23,28 @@ function App() {
       .catch(err => console.log(err.response))
   }
   const deleteUser = id => {
-    axios.delete(`https://users-crud1.herokuapp.com/users/${id}/`)
-      .then(() => {
-        getUsers();
-        deselectUser();
-        swal("Good job!", "User deleted successfully", "success");
-      })
-      .catch(err => console.log(err.response))
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this user.",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        axios.delete(`https://users-crud1.herokuapp.com/users/${id}/`)
+          .then(() => {
+            getUsers();
+            deselectUser();
+          })
+          .catch(err => console.log(err.response))
+        swal("The user was successfully deleted.", {
+          icon: "success",
+        });
+      } else {
+        swal("The user was not deleted.");
+      }
+    });
   }
   const selectUser = user => {
     setUserSelected(user);
