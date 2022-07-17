@@ -14,11 +14,13 @@ const UsersForm = ({ addUser, userSelected, deselectUser, modifyUser }) => {
         setBirthday('');
     }
     useEffect(() => {
-        setFirstName(userSelected?.first_name);
-        setLastName(userSelected?.last_name);
-        setEmail(userSelected?.email);
-        setPassword(userSelected?.password);
-        setBirthday(userSelected?.birthday);
+        if(userSelected !== null) {
+            setFirstName(userSelected?.first_name);
+            setLastName(userSelected?.last_name);
+            setEmail(userSelected?.email);
+            setPassword(userSelected?.password);
+            setBirthday(userSelected?.birthday);
+        }
     }, [ userSelected ])
     const submit = e => {
         e.preventDefault();

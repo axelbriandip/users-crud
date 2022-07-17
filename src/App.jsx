@@ -10,14 +10,14 @@ function App() {
   useEffect(() => {
     axios.get('https://users-crud1.herokuapp.com/users/')
       .then(res => setUsers(res.data))
+      .catch(err => console.log(err.response))
   }, [])
-  console.log(users);
   const getUsers = () => {
     axios.get('https://users-crud1.herokuapp.com/users/')
       .then(res => setUsers(res.data))
+      .catch(err => console.log(err.response))
   }
   const addUser = newUser => {
-    // console.log(newUser)
     axios.post(`https://users-crud1.herokuapp.com/users/`, newUser)
       .then(() => getUsers())
       .catch(err => console.log(err.response))
@@ -25,6 +25,7 @@ function App() {
   const deleteUser = id => {
     axios.delete(`https://users-crud1.herokuapp.com/users/${id}/`)
       .then(() => getUsers())
+      .catch(err => console.log(err.response))
   }
   const selectUser = user => {
     setUserSelected(user);
@@ -34,7 +35,8 @@ function App() {
   }
   const modifyUser = user => {
     axios.put(`https://users-crud1.herokuapp.com/users/${user.id}/`, user)
-      .then(() => getUsers());
+      .then(() => getUsers())
+      .catch(err => console.log(err.response))
   }
   return (
     <div className="App">
