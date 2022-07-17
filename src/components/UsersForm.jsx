@@ -65,8 +65,8 @@ const UsersForm = ({ addUser, userSelected, deselectUser, modifyUser }) => {
     }
     // resto de tratamiento para fecha
     const year = today.getFullYear();
-    const strToday = `${year - 18}-${month}-${day}`;
-    const strDateMin = `${year - 80}-${month}-${day}`;
+    const strToday = `${year}-${month}-${day}`;
+    const strDateMin = `${year - 80}-01-01`;
     // console.log("today: " + strToday);
     return (
         <div className='container-form'>
@@ -74,20 +74,20 @@ const UsersForm = ({ addUser, userSelected, deselectUser, modifyUser }) => {
                 <h2>New user</h2>
                 <div className="container-input">
                     <i className="fa-solid fa-user"></i>
-                    <input type="text" className='input-fname' placeholder='first name' value={firstName} onChange={e => setFirstName(e.target.value)}/>
-                    <input type="text" className='input-lname' placeholder='last name' value={lastName} onChange={e => setLastName(e.target.value)}/>
+                    <input type="text" className='input-fname' required placeholder='first name' value={firstName} onChange={e => setFirstName(e.target.value)}/>
+                    <input type="text" className='input-lname' required placeholder='last name' value={lastName} onChange={e => setLastName(e.target.value)}/>
                 </div>
                 <div className="container-input">
                     <i className="fa-solid fa-envelope"></i>
-                    <input type="email" className='input-email' placeholder='email' value={email} onChange={e => setEmail(e.target.value)}/>
+                    <input type="email" className='input-email' required placeholder='email' value={email} onChange={e => setEmail(e.target.value)}/>
                 </div>
                 <div className="container-input">
                     <i className="fa-solid fa-key"></i>
-                    <input type="password" className='input-password' placeholder='password' value={password} onChange={e => setPassword(e.target.value)}/>
+                    <input type="password" className='input-password' required placeholder='password' value={password} onChange={e => setPassword(e.target.value)}/>
                 </div>
                 <div className="container-input">
                     <i className="fa-solid fa-calendar-days"></i>
-                    <input type="date" className='input-birthday' min={strDateMin} max={strToday} value={birthday} onChange={e => setBirthday(e.target.value)}/>
+                    <input type="date" className='input-birthday' required min={strDateMin} max={strToday} value={birthday} onChange={e => setBirthday(e.target.value)}/>
                 </div>
                 <button>{userSelected !== null ? "Modify" : "Create"}</button>
                 {userSelected !== null && <button onClick={clean}>Clean</button>}
