@@ -65,7 +65,8 @@ const UsersForm = ({ addUser, userSelected, deselectUser, modifyUser }) => {
     }
     // resto de tratamiento para fecha
     const year = today.getFullYear();
-    const strToday = `${year}-${month}-${day}`;
+    const strToday = `${year - 18}-${month}-${day}`;
+    const strDateMin = `${year - 80}-${month}-${day}`;
     // console.log("today: " + strToday);
     return (
         <div className='container-form'>
@@ -86,7 +87,7 @@ const UsersForm = ({ addUser, userSelected, deselectUser, modifyUser }) => {
                 </div>
                 <div className="container-input">
                     <i className="fa-solid fa-calendar-days"></i>
-                    <input type="date" className='input-birthday' max={strToday} value={birthday} onChange={e => setBirthday(e.target.value)}/>
+                    <input type="date" className='input-birthday' min={strDateMin} max={strToday} value={birthday} onChange={e => setBirthday(e.target.value)}/>
                 </div>
                 <button>{userSelected !== null ? "Modify" : "Create"}</button>
                 {userSelected !== null && <button onClick={clean}>Clean</button>}
